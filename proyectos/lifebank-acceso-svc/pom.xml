@@ -25,11 +25,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-        <dependency>
-    		<groupId>org.springframework.cloud</groupId>
-    		<artifactId>spring-cloud-starter-zuul</artifactId>
-    		<version>1.4.0.RELEASE</version>
-		</dependency>		
+<!--         <dependency> -->
+<!--     		<groupId>org.springframework.cloud</groupId> -->
+<!--     		<artifactId>spring-cloud-starter-zuul</artifactId> -->
+<!--     		<version>1.4.0.RELEASE</version> -->
+<!-- 		</dependency>		 -->
 
 		<!-- SECURITY -->
         <dependency>
@@ -85,8 +85,11 @@
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-core</artifactId>
-			<version>1.0.4</version>
-		</dependency>
+			</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+			</dependency>
 	</dependencies>
 	
 
