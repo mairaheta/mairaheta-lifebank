@@ -1,0 +1,54 @@
+server:
+  port: 9062
+
+service:
+  url:
+    root-path: "/auth"
+    login: "/userlogin"
+  configuration:
+    http:
+      http-request-timeout: 30000
+      socket-timeout: 600000
+      conn-request-timeout: 30000
+      max-threads: 400
+      max-threads-per-route: 200
+  jwt:
+    claim:
+      secret: 81cf865debea62194ca81e6774f204e4
+      subject: clientId-Ip-ExpDate
+      issuer: LifeBank
+      expiration-time: 900000
+    prefix: Bearer
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: "jdbc:h2:mem:testdb"
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:            
+
+logging:
+  level:
+    org:
+      hibernate:
+        stat: debug
+        type: trace
+config:
+  status:
+    - name: success
+      code: "200"
+      message: "Successful"
+    - name: error
+      code: "503"
+      message: "Unknown Error"
+    - name: invalid
+      code: "401"
+      message: "Invalid Credentials"
+    - name: blocked
+      code: "400"
+      message: "User Blocked"

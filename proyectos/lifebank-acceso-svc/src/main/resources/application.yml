@@ -1,0 +1,50 @@
+server:
+  port: 9060
+
+spring:
+  profiles:
+    active: local
+
+# Map path to auth service
+service:
+  configuration:
+    http:
+      http-request-timeout: 30000
+      socket-timeout: 600000
+      conn-request-timeout: 30000
+      max-threads: 400
+      max-threads-per-route: 200
+  url: /integrator
+  zuul:
+    routes:
+      auth-service:
+        path: "/auth/**"
+        service-id: AUTH-SERVICE
+        strip-prefix: false
+    host:
+      socket-timeout-millis: 600000
+      connect-timeout-millis: 600000  
+  status:
+    success:
+      code: "200"
+      message: "Successful"
+    error:
+      code: "503"
+      message: "Unknown Error"
+    invalid:
+      code: "401"
+      message: "Invalid Credentials"
+    blocked:
+      code: "400"
+      message: "User Blocked"
+  jwt:
+    tokenPrefix: "Bearer "
+    headerString: Authorization
+    claim:
+      secret: SecretKeyToGenJWTs
+      subject: ID_Client-IPClient
+      issuer: LifeBank
+      expiration-time: 900000
+    
+
+ 

@@ -1,0 +1,84 @@
+server:
+  port: 9064
+
+service:
+  url:
+    root-path: "/cms"
+    menu: "/menu"
+  configuration:
+    http:
+      http-request-timeout: 30000
+      socket-timeout: 600000
+      conn-request-timeout: 30000
+      max-threads: 400
+      max-threads-per-route: 200
+      
+
+config:
+  status:
+    - name: success
+      code: "200"
+      message: "Successful"
+    - name: error
+      code: "503"
+      message: "Unknown Error"
+    - name: invalid
+      code: "401"
+      message: "Invalid Credentials"
+    - name: blocked
+      code: "400"
+      message: "User Blocked"
+menu:
+  options:
+    - id: "1"
+      parentid: "-1"
+      text: Home
+    - id: "2"
+      parentid: "-1"
+      text: Productos
+    - id: "3"
+      parentid: "2"
+      text: "Consulta de Productos"
+    - id: "4"
+      parentid: "2"
+      text: "Consulta detalle de Productos"
+    - id: "5"
+      parentid: "-1"
+      text: Transferencias
+    - id: "6"
+      text: "Transferencias cuentas propias"
+      parentid: "5"
+    - id: "7"
+      parentid: "5"
+      text: "Transferencias a cuentas de terceros"
+    - id: "8"
+      text: "Pago de Tarjeta"
+      parentid: "-1"
+    - id: "9"
+      text: "Pago de Tarjeta propias"
+      parentid: "8"
+    - id: "10"
+      text: "Pago de Tarjeta de terceros"
+      parentid: "8"
+    - id: "11"
+      text: "Pago de Prestamo"
+      parentid: "-1"
+    - id: "12"
+      text: "Pago de Prestamo propio"
+      parentid: "11"
+    - id: "13"
+      text: "Pago de Prestamo de terceros"
+      parentid: "12"
+    - id: "14"
+      text: "Administrar Beneficiarios"
+      parentid: "-1"
+    - id: "15"
+      text: "Afiliacion Beneficiario"
+      parentid: "14"
+    - id: "16"
+      text: "Actualizacion Beneficiario"
+      parentid: "14"
+    - id: "17"
+      text: "Eliminar Beneficiario"
+      parentid: "14"
+ 
